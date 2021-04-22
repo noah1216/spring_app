@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 /**
  * ユーザー情報 Entity
  */
@@ -35,7 +34,6 @@ public class User {
         this.name = empname;
     }
     public String getPassword() {
-		//パスワードを返す
 		return password;
 	}
 
@@ -44,7 +42,6 @@ public class User {
 	}
 
 	public int getDeleteFlag() {
-		//deleteflagを返す
 		return deleteflag;
 	}
 
