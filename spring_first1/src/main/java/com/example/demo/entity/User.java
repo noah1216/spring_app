@@ -30,10 +30,10 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-    public String getname() {
+    public String getName() {
         return name;
     }
-    public void setname(String empname) {
+    public void setName(String empname) {
         this.name = empname;
     }
     public String getPassword() {

@@ -7,8 +7,8 @@
         <h1 th:text="${title}"></h1>
         <table>
             <tr th:each="emp : ${userlist}" th:object="${emp}">
-                <td th:text="*{id}"></td>
-                <td th:text="*{name}"></td>
+                <td th:text="*{getId()}"></td>
+                <td th:text="*{getName()}"></td>
             </tr>
         </table>
     </body>
