@@ -14,11 +14,14 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
-    @Column(name="empno")
+    @Column(name="id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	@Column(name="name")
 	private String name;
+	@Column(name="password")
 	private String password;
+	@Column(name="deleteflag")
 	private int deleteflag;
 	
     public int getId() {
@@ -27,10 +30,10 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-    public String getEmpname() {
+    public String getname() {
         return name;
     }
-    public void setEmpname(String empname) {
+    public void setname(String empname) {
         this.name = empname;
     }
     public String getPassword() {
@@ -41,7 +44,7 @@ public class User {
 		this.password = password;
 	}
 
-	public int getDeleteFlag() {
+	public int getDeleteflag() {
 		return deleteflag;
 	}
 
