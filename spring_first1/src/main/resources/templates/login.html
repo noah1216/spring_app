@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="style.css">
+<title>タイトル</title>
+</head>
+<body>
+<main>
+
+
+  <div class="login-center">
+    <div class="login-box">
+      <h2>login</h2>
+      <form method="post" th:action="@{'/login'}">
+      <div class="login-form"> 
+        ID: <input type="text" name="id" size="30" maxlength="20">
+      </div>
+      <div class="login-form">
+        pw: <input type="password" name="password" size="30" maxlength="20">
+      </div>
+      <div class="login-form">
+        <input type="submit" value="login">
+      </div>
+      </form>
+    </div>
+  </div>
+</main>
+</body>
+</html>
