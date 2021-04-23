@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 /**
  * ユーザー情報 Entity
  */
@@ -15,11 +14,14 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
-    @Column(name="empno")
+    @Column(name="id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	@Column(name="name")
 	private String name;
+	@Column(name="password")
 	private String password;
+	@Column(name="deleteflag")
 	private int deleteflag;
 	
     public int getId() {
@@ -28,14 +30,13 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-    public String getEmpname() {
+    public String getName() {
         return name;
     }
-    public void setEmpname(String empname) {
+    public void setName(String empname) {
         this.name = empname;
     }
     public String getPassword() {
-		//パスワードを返す
 		return password;
 	}
 
@@ -43,8 +44,7 @@ public class User {
 		this.password = password;
 	}
 
-	public int getDeleteFlag() {
-		//deleteflagを返す
+	public int getDeleteflag() {
 		return deleteflag;
 	}
 

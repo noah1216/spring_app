@@ -10,6 +10,7 @@ public class HelloController {
 @RequestMapping(value="/hello")
 private String hello(){
 return "/index.html";
+
 }
 }
          
