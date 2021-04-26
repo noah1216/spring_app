@@ -17,10 +17,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override 
 	protected void configure(HttpSecurity http) throws Exception { 
-	  http.authorizeRequests().antMatchers("/login") // /loginに一致するリクエストは
-	                          .permitAll()          // 誰でもアクセス可能
-	                          .anyRequest()         // その他のリクエストは
-	                          .authenticated()      // 認証が必要
+	  http.authorizeRequests().antMatchers("/login").permitAll()    // 誰でもアクセス可能
+	                          .antMatchers("/admin").hasRole("ADMIN") // admin権限持ちのみが/adminに遷移可能
+	                          .anyRequest().authenticated() // その他のページには誰でも入れるよ記述
 	       .and().formLogin() 
 	       .and().httpBasic(); 
 	}
@@ -32,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	
+	//　認証時（BASIC認証）のパス設定 & ハッシュ化
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
