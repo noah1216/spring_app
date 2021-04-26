@@ -12,15 +12,15 @@
   <div class="login-center">
     <div class="login-box">
       <h2>login</h2>
-      <form method="post" th:action="@{'/login'}">
+      <form method="post" th:action="@{/sign_in}">
       <div class="login-form"> 
-        ID: <input type="text" name="id" size="30" maxlength="20">
+        name: <input type="text" name="name" size="30" maxlength="20">
       </div>
       <div class="login-form">
         pw: <input type="password" name="password" size="30" maxlength="20">
       </div>
       <div class="login-form">
-        <input type="submit" value="login">
+        <input type="submit" value="Login">
       </div>
       </form>
     </div>

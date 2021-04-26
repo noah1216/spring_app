@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class LoginController {
 
-    //GETメソッド
+//    GETメソッド
     @GetMapping("/login")
     public String getLogin(Model model) {
         //login.htmlに画面遷移
