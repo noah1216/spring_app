@@ -4,9 +4,17 @@ plugins {
 	id 'java'
 }
 
+apply plugin: 'io.spring.dependency-management'
+
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
 
 repositories {
 	mavenCentral()
@@ -24,7 +32,15 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	testImplementation 'org.springframework.security:spring-security-test'
+	annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    compileOnly 'org.projectlombok:lombok'
 }
+
+apply plugin: 'idea'
+idea.module.inheritOutputDirs = true
+processResources.destinationDir = compileJava.destinationDir
+compileJava.dependsOn processResources
 
 test {
 	useJUnitPlatform()
