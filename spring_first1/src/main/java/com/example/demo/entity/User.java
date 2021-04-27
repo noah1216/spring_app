@@ -1,56 +1,40 @@
 package com.example.demo.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-/**
- * ユーザー情報 Entity
- */
-@Entity
-@Table(name="users")
-public class User {
 
-	@Id
-    @Column(name="id")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity //エンティティクラスのアノテーション
+@Getter //Getterの自動生成のアノテーション
+@Setter //Setterの自動生成のアノテーション
+@Table(name="users") //テーブル名の指定
+public class User{
+	@Id //idであることをアノテーションで明示する
+	@Column(name="id") //DB上のカラム名を指定する
 	private int id;
+
 	@Column(name="name")
 	private String name;
+
 	@Column(name="password")
 	private String password;
+
 	@Column(name="deleteflag")
 	private int deleteflag;
+
+	@Column(name="updated_at")
+	private Date updated_at;
+
+	@Column(name="created_at")
+	private Date created_at;
 	
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String empname) {
-        this.name = empname;
-    }
-    public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public int getDeleteflag() {
-		return deleteflag;
-	}
-
-	public void setDeleteflag(int deleteflag) {
-		this.deleteflag = deleteflag;
-	}
-
-
+	@Column(name="deleted_at")
+	private Date deleted_at;
+	
 }
