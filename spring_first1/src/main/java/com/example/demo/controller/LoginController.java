@@ -23,7 +23,7 @@ import com.example.demo.service.UserService;
     	 @GetMapping
     	    String getLogin(@ModelAttribute LoginForm logiForm) {
         return "login";
-    }
+    } 
 
     //POSTメソッド
     	    @PostMapping
