@@ -9,12 +9,12 @@
 <body>
 	<main>
 		<div class="header-box">
-			<a href="top.jsp">
+			<a th:href="@{/top}">
 				<button type="button" class="b-size magin-l10">top</button>
 			</a>
-			<a href="logoutServlet">
-				<button type="button" class="b-size magin-l10">logout</button>
-			</a>
+		    <a th:href="@{/logout}">
+		      <input type="button" value="logout">
+		    </a>
 		</div>
 		<div class="list-center">
 			<a href="registerServlet">
@@ -22,34 +22,39 @@
 			</a>
 		</div>
 		
-		<div th:each="questions : ${questionList}"  th:object="${questions}">
+		<div th:each="questions : ${questionList}" th:object="${questions}" >
             <label>問題:</label>
             <label th:text="*{id}"></label>
-            <input type="text" name="question" class="text-size" th:value="*{question}" readonly><br>
-          
-		<label>答え1:</label> 
-		<input type="hidden" name="answerId" value="<%= answer.getQuestionsId() %>"> 
-		<input type="text" name="answer" value="値" class="text-size" readonly>
-		
-		<form action="deleteSarvlet">
-			<input type="hidden" name="questionId" value="<%= question.getId() %>">
-			<input type="hidden" name="answerId" value="<%= answer.getQuestionsId() %>">
-			<input type="hidden" name="answer" value="<%= answer.getAnswer() %>">
-			<input type="hidden" name="question" value="<%= question.getQuestion() %>">
-			<button type="submit">削除</button>
-		</form>
-		
-		<form action="editServlet">
-			<input type="hidden" name="questionId"
-				value="<%= question.getId() %>"> <input type="hidden"
-				name="answerId" value="<%= answer.getQuestionsId() %>"> <input
-				type="hidden" name="answer" value="<%= answer.getAnswer() %>">
-			<input type="hidden" name="question"
-				value="<%= question.getQuestion() %>">
-			<button type="submit">編集</button>
-		</form>
-		
+            <input type="text" name="question" class="text-size" th:value="${questions.question}" readonly><br>
+            
+        <div th:each="answers, stat : ${answerList}">
+        <div th:with="id1=${questions.id}, id2=${answers.questions_id}">
+	        <div th:if="${id1 == id2}">
+				<label>答え:</label> 
+				<label th:text="${stat.index}"></label>
+				<input type="hidden" name="answerId" th:value="${answers.questions_id}"> 
+				<input type="text" name="answer" th:value="${answers.answer}" class="text-size" readonly>
+				<form action="deleteSarvlet">
+					<input type="hidden" name="questionId" value="<%= question.getId() %>">
+					<input type="hidden" name="answerId" value="<%= answer.getQuestionsId() %>">
+					<input type="hidden" name="answer" value="<%= answer.getAnswer() %>">
+					<input type="hidden" name="question" value="<%= question.getQuestion() %>">
+					<button type="submit">削除</button>
+				</form>
+				
+				<form action="editServlet">
+					<input type="hidden" name="questionId"
+						value="<%= question.getId() %>"> <input type="hidden"
+						name="answerId" value="<%= answer.getQuestionsId() %>"> <input
+						type="hidden" name="answer" value="<%= answer.getAnswer() %>">
+					<input type="hidden" name="question"
+						value="<%= question.getQuestion() %>">
+					<button type="submit">編集</button>
+				</form>
+			</div>
 		</div>
+		</div>
+	</div>
 	</main>
 </body>
 </html>

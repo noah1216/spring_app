@@ -23,6 +23,7 @@ import com.example.demo.service.QuestionService;
 public class ListController {
 	@Autowired
 	private QuestionService questionService;
+	@Autowired
 	private AnswerService answerService;
 	
 	@GetMapping
