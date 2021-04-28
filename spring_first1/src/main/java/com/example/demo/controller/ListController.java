@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.controller.form.LoginForm;
+import com.example.demo.entity.Answer;
 import com.example.demo.entity.Question;
+import com.example.demo.service.AnswerService;
 import com.example.demo.service.QuestionService;
 
 
@@ -21,13 +23,15 @@ import com.example.demo.service.QuestionService;
 public class ListController {
 	@Autowired
 	private QuestionService questionService;
+	private AnswerService answerService;
 	
 	@GetMapping
 	String getList(Model model) {
 		List<Question> list = questionService.findAll();
-		System.out.println(list);
+		List<Answer> list2 = answerService.findAll();
 		
 		model.addAttribute("questionList",list);
+		model.addAttribute("answerList",list2);
 		
 		return "list";
 	} 
