@@ -24,6 +24,7 @@ import com.example.demo.service.UserService;
         //login.htmlに画面遷移
     	 @GetMapping
     	    String getLogin(@ModelAttribute LoginForm logiForm) {
+//    	model.addAllAttributes("loginForm", logiForm);
         return "login";
     } 
 

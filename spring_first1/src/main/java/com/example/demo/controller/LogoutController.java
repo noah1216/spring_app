@@ -5,8 +5,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.controller.form.LoginForm;
 
 
 
@@ -14,28 +17,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/logout")
 public class LogoutController {
-	 @GetMapping
-	    String getLogout(HttpServletRequest request) {
-		 HttpSession session = request.getSession(false);
-			
-		    if (session != null){
-			      session.invalidate();
-			      session = request.getSession(false);
+	@GetMapping
+	String getLogout(HttpServletRequest request, @ModelAttribute LoginForm logiForm) {
+		HttpSession session = request.getSession(false);
 
-			      if (session == null) {
-			    	  return "login";
-			      }
-			   }
-			
-		    return "login";
+		if (session != null){
+			session.invalidate();
+			session = request.getSession(false);
+
+			System.out.println("samon");
+			if (session == null) {
+				return "login";
+			}
 		}
-	 
-	 
-	 
+		return "login";
+	}
+
+
+
 	@PostMapping
-    String postLogout(HttpServletRequest request) {
+	String postLogout(HttpServletRequest request) {
 		return null;
-		
-		
+
+
 	}
 }
