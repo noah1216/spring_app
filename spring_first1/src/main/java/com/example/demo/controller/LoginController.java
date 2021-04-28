@@ -16,15 +16,15 @@ import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 
 @Controller
-//    GETメソッド
+
 @RequestMapping("/login")
     public class LoginController {
 	@Autowired
 	private UserService userService;
-        //login.htmlに画面遷移
+	
+	//    GETメソッド
     	 @GetMapping
     	    String getLogin(@ModelAttribute LoginForm logiForm) {
-//    	model.addAllAttributes("loginForm", logiForm);
         return "login";
     } 
 
