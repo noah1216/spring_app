@@ -22,22 +22,16 @@ public class LogoutController {
 		HttpSession session = request.getSession(false);
 
 		if (session != null){
-			session.invalidate();
-			session = request.getSession(false);
-
-			System.out.println("samon");
-			if (session == null) {
-				return "login";
-			}
+			session.removeAttribute("login_id");
 		}
-		return "login";
+		return null;
 	}
 
 
 
-	@PostMapping
-	String postLogout(HttpServletRequest request) {
-		return null;
+		@PostMapping
+		String postLogout(HttpServletRequest request) {
+			return null;
 
 
 	}
