@@ -29,4 +29,9 @@ public class AnswerService {
 		// 保存
 		repository.save(answers);
 	}
+
+	//　questionに紐付いたanswerを取得
+	public List<Answer> findAnswer(int question_id) {
+		return repository.findByQuestionsIdIs(question_id);
+	}
 }

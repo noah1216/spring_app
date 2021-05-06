@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.controller.form.DeleteForm;
@@ -17,28 +16,26 @@ import com.example.demo.service.AnswerService;
 import com.example.demo.service.QuestionService;
 
 @Controller
-@RequestMapping("/list")
 
-public class ListController {
+@RequestMapping("/delete")
+public class DeleteController {
 	@Autowired
 	private QuestionService questionService;
 	@Autowired
 	private AnswerService answerService;
 
 	@GetMapping
-	String getList(Model model, @ModelAttribute DeleteForm deleteForm) {
-		List<Question> list = questionService.findAll();
-		List<Answer> list2 = answerService.findAll();
+	String getRegister(@ModelAttribute DeleteForm deleteForm, Model model) {
 
-		model.addAttribute("questionList", list);
-		model.addAttribute("answerList", list2);
+		int question_id = deleteForm.getQuestion_id();
+		//クエスチョンの取得
+		Question question = questionService.findId(question_id);
+		List<Answer> listA = answerService.findAnswer(question_id);
 
-		return "list";
+		model.addAttribute("question", question);
+		model.addAttribute("answerList", listA);
+
+		return "delete";
 	}
 
-	@PostMapping
-	String postLogin(@ModelAttribute DeleteForm deleteForm) {
-		return "list";
-
-	}
 }

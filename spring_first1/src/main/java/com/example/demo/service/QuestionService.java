@@ -19,9 +19,14 @@ public class QuestionService {
 		return repository.findAll();
 	}
 
-	//一件の取得
+	//questionカラムを参照し、一件の取得
 	public Question findQuestion(String question) {
 		return repository.findByQuestionEquals(question);
+	}
+
+	//idカラムを参照し、一件の取得
+	public Question findId(int question_id) {
+		return repository.findById(question_id);
 	}
 
 	//一件の保存
