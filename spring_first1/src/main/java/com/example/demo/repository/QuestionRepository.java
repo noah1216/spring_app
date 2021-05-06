@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.entity.Question;
 
 @Repository
-public interface QuestionRepository extends JpaRepository<Question, Integer>{
-	
+public interface QuestionRepository extends JpaRepository<Question, Integer> {
+
+	//　questionと同じデータを持つレコードを取得する
+	Question findByQuestionEquals(String question);
 }

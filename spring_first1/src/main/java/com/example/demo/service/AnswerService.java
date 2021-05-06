@@ -20,12 +20,13 @@ public class AnswerService {
 	}
 
 	//一件の保存
-	public Answer create(String answer) {
+	public void create(String answer, int question_id) {
 		//　エンティティ変数作成
 		Answer answers = new Answer();
 		//　受け取った値をエンティティにセットする
 		answers.setAnswer(answer);
+		answers.setQuestions_id(question_id);
 		// 保存
-		return repository.save(answers);
+		repository.save(answers);
 	}
 }
