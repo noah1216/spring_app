@@ -18,4 +18,15 @@ public class QuestionService {
 	public List<Question> findAll() {
 		return repository.findAll();
 	}
+
+	//一件の保存
+	public Question create(String question) {
+		//　エンティティ変数作成
+		Question questions = new Question();
+		//　受け取った値をエンティティにセットする
+		questions.setQuestion(question);
+		// 保存
+		return repository.save(questions);
+	}
+
 }

@@ -15,4 +15,5 @@ public class UserService {
 		User user = userRepository.findByNameAndPassword(name, password);
 		return user;
 	}
+
 }
