@@ -10,5 +10,5 @@ import com.example.demo.entity.Answer;
 @Repository
 public interface AnswerRepository extends JpaRepository<Answer, Integer> {
 
-	List<Answer> findByQuestionsIdIs(int questions_id);
+	List<Answer> findByQuestionsIdEquals(int questions_id);
 }

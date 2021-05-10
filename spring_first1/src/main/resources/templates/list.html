@@ -37,11 +37,12 @@
 		</div>
 		</div>
 				<div th:with="question_id=${questions.id}">
-				<form th:action="@{/delete}" th:object="${deleteForm}">
-					<input type="hidden" th:field="*{question_id}">
+				<form th:action="@{/delete}" >
 					<button type="submit">削除</button>
+					<input type="hidden"  name="question" th:value="${questions.id}" readonly>
 				</form>
 				</div>
+				
 				<form action="deleteSarvlet">
 					<input type="hidden" name="questionId"
 						value="<%= question.getId() %>"> <input type="hidden"
