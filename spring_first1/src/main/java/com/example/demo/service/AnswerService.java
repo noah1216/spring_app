@@ -30,8 +30,8 @@ public class AnswerService {
 		repository.save(answers);
 	}
 
-	//	questionに紐付いたanswerを取得
+	//　questionに紐付いたanswerを取得
 	public List<Answer> findAnswer(int question_id) {
-		return repository.findByQuestionsIdEquals(question_id);
+		return repository.findByQuestions_idEquals(question_id);
 	}
 }

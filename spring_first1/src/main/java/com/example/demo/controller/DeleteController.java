@@ -27,12 +27,13 @@ public class DeleteController {
 	String getRegiste(@RequestParam(name = "question") String q, Model model) {
 
 		int question_id = Integer.parseInt(q);
+		System.out.println(question_id);
 		//クエスチョンの取得
 		Question question = questionService.findId(question_id);
 		List<Answer> listA = answerService.findAnswer(question_id);
+		System.out.println(question);
 		System.out.println(listA);
-		//		System.out.println(listA);
-		//		model.addAttribute("question", question);
+		model.addAttribute("question", question);
 		//		model.addAttribute("answerList", listA);
 
 		return "delete";
