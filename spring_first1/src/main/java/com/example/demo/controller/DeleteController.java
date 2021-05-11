@@ -32,7 +32,7 @@ public class DeleteController {
 		Question question = questionService.findId(question_id);
 		List<Answer> listA = answerService.findAnswer(question_id);
 		System.out.println(question);
-		System.out.println(listA);
+		//		System.out.println(listA);
 		model.addAttribute("question", question);
 		//		model.addAttribute("answerList", listA);
 

@@ -31,7 +31,7 @@ public class AnswerService {
 	}
 
 	//　questionに紐付いたanswerを取得
-	public List<Answer> findAnswer(int question_id) {
+	public List<Answer> findAnswer(Integer question_id) {
 		return repository.findByQuestions_idEquals(question_id);
 	}
 }
