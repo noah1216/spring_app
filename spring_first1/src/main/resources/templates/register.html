@@ -4,6 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="css/main.css" >
+<script type="text/javascript" th:src="@{/js/demo.js}"></script>
 <title>タイトル</title>
 </head>
 <body>
@@ -24,11 +25,11 @@
         <div class="question-box">
           <label class="valign">問題:</label>
           <textarea class="text-size text-size-h250" rows="10" cols="60" th:field="*{question}">ここに記入してください</textarea>
-          <p>
+          <div id="answerlist">
             <label>答え:</label>
             <input type="text" th:field="*{answer}" class="text-size84">
             <input type="button" value="削除" >
-          </p>
+          </div>
         </div>
       </div>
         <input type="submit" value="確認" >
@@ -39,6 +40,8 @@
          <a href="listServlet">
 	        <button type="button" >追加</button>
 	     </a>
+<!-- 	         下記ボタンを押下した際のダイアログは、demo2.jsから取得しています。<br/>
+    <input type="button" value="JavaScript呼出_demo2" onclick="demoTest2();" /> -->
     </div>
   </div>
 </main>

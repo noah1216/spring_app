@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="style.css">
+<title>タイトル</title>
+</head>
+<body>
+<main>
+  <div class="header-box">
+			<a th:href="@{/top}">
+		      <input type="button" value="top">
+			</a>
+		    <a th:href="@{/logout}">
+		      <input type="button" value="logout">
+		    </a>
+  </div>
+
+  <div class="button-box">
+    <div class="buttonsize-box">
+      <div class="tyuou">
+        <div class="questionーbox">
+          <label class="valign">問題:</label>
+          <textarea class="text-size text-size-h250" rows="10" cols="60" th:text="${question.question}"></textarea>
+          <p>
+            <label>答え:</label>
+          </p>
+          <div th:each="answers, stat : ${answerList}">
+          <p>
+            <input type="text" name="example" th:value="${answers.answer}" class="text-size">
+          </p>
+		</div>
+        </div>
+      </div>
+      <div class="center">
+ 		    <a th:href="@{/list}">
+		      <input type="button" value="戻る">
+		    </a>
+		<form th:action="@{/delete}" method="post">
+	        <input type="submit" value="削除" >
+	        <input type="hidden"  name="question" th:value="${question.id}" readonly>
+    	</form>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>
