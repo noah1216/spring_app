@@ -25,13 +25,23 @@ public class AnswerService {
 		Answer answers = new Answer();
 		//　受け取った値をエンティティにセットする
 		answers.setAnswer(answer);
-		answers.setQuestions_id(question_id);
+		answers.setQuestionsId(question_id);
 		// 保存
 		repository.save(answers);
 	}
 
 	//　questionに紐付いたanswerを取得
 	public List<Answer> findAnswer(Integer question_id) {
-		return repository.findByQuestions_idEquals(question_id);
+		return repository.findByQuestionsIdEquals(question_id);
+	}
+
+	//　questionのidと一致したanswerの削除
+	public void delete(int id) {
+		List<Answer> answers = repository.findByQuestionsIdEquals(id);
+		for (Answer answer : answers) {
+			int i = answer.getId();
+			repository.deleteById(i);
+		}
+
 	}
 }

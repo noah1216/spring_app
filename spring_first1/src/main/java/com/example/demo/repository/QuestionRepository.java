@@ -13,4 +13,6 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 
 	// id を参照、取得
 	Question findById(int id);
+
+	// 削除
 }

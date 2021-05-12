@@ -27,11 +27,11 @@
             <label th:text="*{id}"></label>
             <input type="text" name="question" class="text-size" th:value="${questions.question}" readonly><br>
         <div th:each="answers, stat : ${answerList}">
-        <div th:with="id1=${questions.id}, id2=${answers.questions_id}, answer=${answers.answer}">
+        <div th:with="id1=${questions.id}, id2=${answers.questionsId}, answer=${answers.answer}">
 	        <div th:if="${id1 == id2}">
 				<label>答え:</label> 
 				<label th:text="${stat.count}"></label>
-				<input type="hidden" name="answerId" th:value="${answers.questions_id}"> 
+				<input type="hidden" name="answerId" th:value="${answers.questionsId}"> 
 				<input type="text" name="answer" th:value="${answers.answer}" class="text-size" readonly>
 			</div>
 		</div>

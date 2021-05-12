@@ -8,8 +8,12 @@
 <body>
 <main>
   <div class="header-box">
-    <input type="submit" value="top" class="b-size magin-l10">
-    <input type="submit" value="logout" class="b-size magin-l10">
+			<a th:href="@{/top}">
+		      <input type="button" value="top">
+			</a>
+		    <a th:href="@{/logout}">
+		      <input type="button" value="logout">
+		    </a>
   </div>
 
   <div class="button-box">
@@ -17,7 +21,7 @@
       <div class="tyuou">
         <div class="questionーbox">
           <label class="valign">問題:</label>
-          <textarea class="text-size text-size-h250" rows="10" cols="60">ここに記入してください</textarea>
+          <textarea class="text-size text-size-h250" rows="10" cols="60" th:text="${question.question}"></textarea>
           <p>
             <label>答え:</label>
           </p>
@@ -29,8 +33,13 @@
         </div>
       </div>
       <div class="center">
-        <input type="button" value="編集" >
-        <input type="button" value="削除" >
+ 		    <a th:href="@{/list}">
+		      <input type="button" value="戻る">
+		    </a>
+		<form th:action="@{/delete}" method="post">
+        <input type="submit" value="削除" >
+        <input type="button"  name="question" th:value="${question.id}" readonly>
+    	</form>
       </div>
     </div>
   </div>

@@ -39,4 +39,8 @@ public class QuestionService {
 		return repository.save(questions);
 	}
 
+	//　削除
+	public void delete(int id) {
+		repository.deleteById(id);
+	}
 }

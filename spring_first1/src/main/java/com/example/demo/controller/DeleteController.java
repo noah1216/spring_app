@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -32,11 +33,19 @@ public class DeleteController {
 		Question question = questionService.findId(question_id);
 		List<Answer> listA = answerService.findAnswer(question_id);
 		System.out.println(question);
-		//		System.out.println(listA);
+		System.out.println(listA);
 		model.addAttribute("question", question);
-		//		model.addAttribute("answerList", listA);
+		model.addAttribute("answerList", listA);
 
 		return "delete";
+	}
+
+	@PostMapping
+	String postRegiste(@RequestParam(name = "question") String q, Model model) {
+		int id = Integer.parseInt(q);
+		questionService.delete(id);
+		answerService.delete(id);
+		return "list";
 	}
 
 }

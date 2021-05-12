@@ -25,11 +25,11 @@
         <div class="question-box">
           <label class="valign">問題:</label>
           <textarea class="text-size text-size-h250" rows="10" cols="60" th:field="*{question}">ここに記入してください</textarea>
-          <p>
+          <div id="answerlist">
             <label>答え:</label>
             <input type="text" th:field="*{answer}" class="text-size84">
             <input type="button" value="削除" >
-          </p>
+          </div>
         </div>
       </div>
         <input type="submit" value="確認" >
