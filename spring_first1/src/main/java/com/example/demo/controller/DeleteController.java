@@ -28,12 +28,9 @@ public class DeleteController {
 	String getRegiste(@RequestParam(name = "question") String q, Model model) {
 
 		int question_id = Integer.parseInt(q);
-		System.out.println(question_id);
 		//クエスチョンの取得
 		Question question = questionService.findId(question_id);
 		List<Answer> listA = answerService.findAnswer(question_id);
-		System.out.println(question);
-		System.out.println(listA);
 		model.addAttribute("question", question);
 		model.addAttribute("answerList", listA);
 
@@ -41,11 +38,14 @@ public class DeleteController {
 	}
 
 	@PostMapping
-	String postRegiste(@RequestParam(name = "question") String q, Model model) {
-		int id = Integer.parseInt(q);
-		questionService.delete(id);
-		answerService.delete(id);
-		return "list";
+	String postRegiste(@RequestParam(name = "question", required = false) String q) {
+		System.out.println(q);
+		if (q != null) {
+			int id = Integer.parseInt(q);
+			questionService.delete(id);
+			answerService.delete(id);
+		}
+		return "top";
 	}
 
 }

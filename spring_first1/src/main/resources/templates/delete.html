@@ -37,8 +37,8 @@
 		      <input type="button" value="戻る">
 		    </a>
 		<form th:action="@{/delete}" method="post">
-        <input type="submit" value="削除" >
-        <input type="button"  name="question" th:value="${question.id}" readonly>
+	        <input type="submit" value="削除" >
+	        <input type="hidden"  name="question" th:value="${question.id}" readonly>
     	</form>
       </div>
     </div>
