@@ -43,16 +43,11 @@
 				</form>
 				</div>
 				
-				<form action="deleteSarvlet">
-					<input type="hidden" name="questionId"
-						value="<%= question.getId() %>"> <input type="hidden"
-						name="answerId" value="<%= answer.getQuestionsId() %>"> <input
-						type="hidden" name="answer" value="<%= answer.getAnswer() %>">
-					<input type="hidden" name="question"
-						value="<%= question.getQuestion() %>">
+
+				<form th:action="@{/edit}" >
 					<button type="submit">編集</button>
+					<input type="hidden"  name="question" th:value="${questions.id}" readonly>
 				</form>
-				
 	</div>
 </main>
 </body>
