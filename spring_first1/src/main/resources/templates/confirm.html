@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
 <head>
 <meta charset="utf-8" />
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+
 <title>タイトル</title>
-  crossorigin="anonymous"></script>
 </head>
 <body>
 <main>
@@ -15,9 +14,10 @@
 
   <div class="edit-numder">
     <label>問題番号:</label>
-    <label class="number">1</label>
+    <label class="number" th:text="${id}"></label>
   </div>
 
+<form th:action="@{/confirm}" th:object="${UpdateForm}" >
   <div class="button-box">
     <div class="buttonsize-box">
       <div class="tyuou">
@@ -39,6 +39,7 @@
       </div>
     </div>
   </div>
+</form>
 </main>
 </body>
 </html>

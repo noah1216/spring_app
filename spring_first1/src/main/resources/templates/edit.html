@@ -24,11 +24,13 @@
       <div class="tyuou">
         <div class="question-box">
           <label class="valign">問題:</label>
-          <!-- <input  type="text" id="question" name="question"  th:value="${question.question}"> -->
+          <input  type="text" id="question" name="question" th:value="${question.question}">
+          <input type="hidden" id="questionsId" name="questionId" th:value="${question.id}" class="text-size84">
           
           <div th:each="answers, stat : ${answerList}">
             <label>答え:</label>
             <input type="text" id="answer" name="answer" th:value="${answers.answer}" class="text-size84">
+            <input type="text" id="answerId" name="answerId" th:value="${answers.id}" class="text-size84">
             <input type="button" value="削除" >
           </div>
           

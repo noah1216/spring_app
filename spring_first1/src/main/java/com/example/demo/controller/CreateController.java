@@ -34,8 +34,8 @@ public class CreateController {
 	String postRegister(@ModelAttribute RegisterForm registerForm) {
 		//　フォームから値を取り出す
 		String question = registerForm.getQuestion();
-
 		String answer = registerForm.getAnswer();
+
 		if (question == null && answer == null) {
 			return "register";
 		}
