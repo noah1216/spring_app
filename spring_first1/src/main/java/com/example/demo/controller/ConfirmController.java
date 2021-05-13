@@ -15,11 +15,16 @@ import com.example.demo.controller.form.UpdateForm;
 public class ConfirmController {
 	@GetMapping
 	String geteConfirm(@ModelAttribute UpdateForm updateForm, Model model) {
-		String answer = updateForm.getAnswer();
+		//		String answer = updateForm.getAnswer();
+
+		String[] answer = new String[] { updateForm.getAnswer() };
+		String[] answerId = new String[] { updateForm.getAnswerId() };
 		String question = updateForm.getQuestion();
 		String id = updateForm.getQuestionId();
+		System.out.println(answer);
 
-		model.addAttribute("answer", answer);
+		model.addAttribute("answerIds", answerId);
+		model.addAttribute("answers", answer);
 		model.addAttribute("question", question);
 		model.addAttribute("id", id);
 		return "confirm";

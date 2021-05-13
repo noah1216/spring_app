@@ -31,8 +31,8 @@
 	        <div th:if="${id1 == id2}">
 				<label>答え:</label> 
 				<label th:text="${stat.count}"></label>
-				<input type="hidden" name="answerId" th:value="${answers.questionsId}"> 
-				<input type="text" name="answer" th:value="${answers.answer}" class="text-size" readonly>
+				<input type="hidden" name="answerId[]" th:value="${answers.questionsId}"> 
+				<input type="text" name="answer[]" th:value="${answers.answer}" class="text-size" readonly>
 			</div>
 		</div>
 		</div>

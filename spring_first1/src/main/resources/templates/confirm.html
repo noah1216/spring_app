@@ -23,14 +23,13 @@
       <div class="tyuou">
         <div class="question-box">
           <label class="valign">問題:</label>
-          <textarea class="text-size text-size-h250" rows="10" cols="60">ここに記入してください</textarea>
-          <p>
+          <input  type="text" id="question" name="question" th:value="${question}" readonly>
+          <input type="hidden" id="questionsId" name="questionId" th:value="${id}" class="text-size84">
+          
+          <div th:each="answer : ${answers}">
             <label>答え:</label>
-            <input type="text" name="example" value="選択肢" class="text-size">
-          </p>
-          <p>
-            <input type="text" name="example" value="選択肢" class="text-size">
-          </p>
+            <input type="text" name="answer[]" value="answer" class="text-size"  th:value="${answer}" readonly>
+          </div>
         </div>
       </div>
       <div class="center">

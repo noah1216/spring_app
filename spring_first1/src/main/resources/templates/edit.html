@@ -30,7 +30,7 @@
           <div th:each="answers, stat : ${answerList}">
             <label>答え:</label>
             <input type="text" id="answer" name="answer" th:value="${answers.answer}" class="text-size84">
-            <input type="text" id="answerId" name="answerId" th:value="${answers.id}" class="text-size84">
+            <input type="hidden" id="answerId" name="answerId" th:value="${answers.id}" class="text-size84">
             <input type="button" value="削除" >
           </div>
           
