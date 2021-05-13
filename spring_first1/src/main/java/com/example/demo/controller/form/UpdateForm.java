@@ -1,17 +1,13 @@
 package com.example.demo.controller.form;
 
-import javax.validation.constraints.NotBlank;
-
 import lombok.Data;
 
 @Data
-public class RegisterForm {
-	
+public class UpdateForm {
+
 	private final String answer;
 
-
 	private final String question;
-	
-	
+
 	private final String questionId;
 }
