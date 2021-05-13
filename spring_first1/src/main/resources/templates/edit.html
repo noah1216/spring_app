@@ -24,7 +24,7 @@
       <div class="tyuou">
         <div class="question-box">
           <label class="valign">問題:</label>
-          <textarea class="text-size text-size-h250" id="question" name="question" rows="10" cols="60" th:text="${question.question}"></textarea>
+          <!-- <input  type="text" id="question" name="question"  th:value="${question.question}"> -->
           
           <div th:each="answers, stat : ${answerList}">
             <label>答え:</label>

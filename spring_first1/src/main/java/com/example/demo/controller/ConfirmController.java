@@ -13,7 +13,8 @@ import com.example.demo.controller.form.UpdateForm;
 public class ConfirmController {
 	@GetMapping
 	String geteConfirm(@ModelAttribute UpdateForm updateForm) {
-
+		String u = updateForm.getAnswer();
+		System.out.println(u);
 		return "edit";
 	}
 
