@@ -17,7 +17,7 @@
     <label class="number" th:text="${id}"></label>
   </div>
 
-<form th:action="@{/confirm}" th:object="${UpdateForm}" >
+<form th:action="@{/confirm}" th:object="${UpdateForm}" method="post">
   <div class="button-box">
     <div class="buttonsize-box">
       <div class="tyuou">
@@ -28,13 +28,14 @@
           
           <div th:each="answer : ${answers}">
             <label>答え:</label>
-            <input type="text" name="answer[]" value="answer" class="text-size"  th:value="${answer}" readonly>
+            <input type="text" name="answer" value="answer" class="text-size"  th:value="${answer}" readonly>
           </div>
         </div>
       </div>
       <div class="center">
+      	<input type="hidden" name="answerIds" value="answerIds" class="text-size"  th:value="${answerIds}" readonly>
         <input type="button" value="戻る">
-        <input type="button" value="更新">
+        <input type="submit" value="更新">
       </div>
     </div>
   </div>
