@@ -26,7 +26,7 @@ public class EditController {
 	private AnswerService answerService;
 
 	@GetMapping
-	String geteEit(@RequestParam(name = "question") String q, Model model, @ModelAttribute UpdateForm updateForm) {
+	String getEit(@RequestParam(name = "question") String q, Model model, @ModelAttribute UpdateForm updateForm) {
 
 		int question_id = Integer.parseInt(q);
 		//クエスチョンの取得

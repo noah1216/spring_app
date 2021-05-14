@@ -8,6 +8,7 @@ import lombok.Data;
 public class UpdateForm {
 	@NotBlank
 	private final String answer;
+	//	private final String[] answer;
 
 	private final String answerId;
 

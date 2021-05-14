@@ -44,6 +44,7 @@ public class QuestionService {
 		//　エンティティ変数作成
 		Question questions = new Question();
 		//　受け取った値をエンティティにセットする
+		System.out.println(question);
 		questions.setId(questionId);
 		questions.setQuestion(question);
 		// 保存

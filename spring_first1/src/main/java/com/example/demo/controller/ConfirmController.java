@@ -41,9 +41,8 @@ public class ConfirmController {
 			return "edit";
 		}
 		String a = updateForm.getAnswer();
-		String b = updateForm.getAnswerId();
+		String answerId = updateForm.getAnswerId();
 		String[] answer = a.split(",");
-		String[] answerId = b.split(",");
 
 		String question = updateForm.getQuestion();
 		String id = updateForm.getQuestionId();
@@ -62,28 +61,28 @@ public class ConfirmController {
 		//		System.out.println(a);
 		//		System.out.println(b);
 		String[] answers = a.split(",");
-
-		System.out.println(b);
+		String[] answerIds = b.split(",");
 
 		String question = updateForm.getQuestion();
 		String id = updateForm.getQuestionId();
 
 		//　questionの更新
 		int questionId = Integer.parseInt(id);
-		//		questionService.update(question, questionId);
+		System.out.println(question);
+		questionService.update(question, questionId);
 
 		// アンサーの更新
 		int count = 0;
 		for (String answer : answers) {
-			//						int i = b.length;
-			//			System.out.println("coubt::::" + i);
-			//			int answerId = Integer.parseInt(i);
-			//			System.out.println(answerId);
+			//リストからカウントして取得（int）
+			String i = answerIds[count];
+			int answerId = Integer.parseInt(i);
 			System.out.println(answer);
-			//			answerService.update(answer, answerId);
+
+			answerService.update(answer, answerId);
 
 			count = count + 1;
-			System.out.println(count);
+
 		}
 		return "top";
 
