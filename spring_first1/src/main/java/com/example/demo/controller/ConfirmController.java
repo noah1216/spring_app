@@ -58,11 +58,11 @@ public class ConfirmController {
 	@PostMapping
 	String postConfirm(@ModelAttribute UpdateForm updateForm, Model model) {
 		String a = updateForm.getAnswer();
-		String[] b = updateForm.getAnswerIds();
+		String b = updateForm.getAnswerIds();
 		//		System.out.println(a);
 		//		System.out.println(b);
 		String[] answers = a.split(",");
-		System.out.println(answers);
+
 		System.out.println(b);
 
 		String question = updateForm.getQuestion();
@@ -73,16 +73,18 @@ public class ConfirmController {
 		//		questionService.update(question, questionId);
 
 		// アンサーの更新
-//		int count = 0;
-//		for (String answer : answers) {
-//			String i = b[count];
-//			int answerId = Integer.parseInt(i);
-//			System.out.println(answerId);
-//			System.out.println(answer);
-//			//			answerService.update(answer, answerId);
-//
-//			count = count + 1;
-//		}
+		int count = 0;
+		for (String answer : answers) {
+			//						int i = b.length;
+			//			System.out.println("coubt::::" + i);
+			//			int answerId = Integer.parseInt(i);
+			//			System.out.println(answerId);
+			System.out.println(answer);
+			//			answerService.update(answer, answerId);
+
+			count = count + 1;
+			System.out.println(count);
+		}
 		return "top";
 
 	}

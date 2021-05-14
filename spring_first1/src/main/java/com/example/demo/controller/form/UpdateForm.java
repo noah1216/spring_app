@@ -11,7 +11,7 @@ public class UpdateForm {
 
 	private final String answerId;
 
-	private final String[] answerIds;
+	private final String answerIds;
 
 	@NotBlank
 	private final String question;
