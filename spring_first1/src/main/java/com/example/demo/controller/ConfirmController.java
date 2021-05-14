@@ -40,9 +40,9 @@ public class ConfirmController {
 			model.addAttribute("answerList", listA);
 			return "edit";
 		}
-		String answer = updateForm.getAnswer();
+		String a = updateForm.getAnswer();
 		String answerId = updateForm.getAnswerId();
-		//		String[] answer = a.split(",");
+		String[] answer = a.split(",");
 
 		String question = updateForm.getQuestion();
 		String id = updateForm.getQuestionId();
@@ -56,16 +56,12 @@ public class ConfirmController {
 
 	@PostMapping
 	String postConfirm(@ModelAttribute UpdateForm updateForm, Model model) {
-		//		String a = updateForm.getAnswer();
-		//		String b = updateForm.getAnswerIds();
+		String a = updateForm.getAnswer();
+		String b = updateForm.getAnswerIds();
 		//		System.out.println(a);
 		//		System.out.println(b);
-		//		String[] answers = a.split(",");
-		//		String[] answerIds = b.split(",");
-		String answer = updateForm.getAnswer();
-		String b = updateForm.getAnswerIds();
-		int answerId = Integer.parseInt(b);
-		answerService.update(answer, answerId);
+		String[] answers = a.split(",");
+		String[] answerIds = b.split(",");
 
 		String question = updateForm.getQuestion();
 		String id = updateForm.getQuestionId();
@@ -76,16 +72,16 @@ public class ConfirmController {
 
 		// アンサーの更新
 
-		//		for (int count = 0; count < answers.length; count++) {
-		//			//リストからカウントして取得（int）
-		//			String answer = answers[count];
-		//			String i = answerIds[count];
-		//			int answerId = Integer.parseInt(i);
-		////			System.out.println(answer);
-		////			System.out.println(answer);
-		//			answerService.update(answer, answerId);
-		//
-		//		}
+		for (int count = 0; count < answers.length; count++) {
+			//リストからカウントして取得（int）
+			String answer = answers[count];
+			String i = answerIds[count];
+			int answerId = Integer.parseInt(i);
+			//			System.out.println(answer);
+			//			System.out.println(answer);
+			answerService.update(answer, answerId, questionId);
+
+		}
 		return "top";
 
 	}

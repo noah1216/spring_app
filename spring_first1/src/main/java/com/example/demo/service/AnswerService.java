@@ -31,11 +31,12 @@ public class AnswerService {
 	}
 
 	//一件の更新
-	public Answer update(String answer, int answerId) {
+	public Answer update(String answer, int answerId, int questionId) {
 		//　エンティティ変数作成
 		Answer answers = new Answer();
 		//　受け取った値をエンティティにセットする
 
+		answers.setQuestionsId(questionId);
 		answers.setId(answerId);
 		answers.setAnswer(answer);
 		// 保存
