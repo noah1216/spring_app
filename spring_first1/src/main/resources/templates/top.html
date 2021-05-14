@@ -15,12 +15,14 @@
   <div class="button-box">
     <div class="buttonsize-box">
       <div class="top-center">
-        <a th:href="@{/list}">
+          <a th:href="@{/list}">
 	        <button type="button" class="button-size1">問題と答えを確認・登録する　＞</button>
 	      </a>
       </div>
       <div class="top-center">
-        <input type="button" value="テストをする　＞" class="button-size">
+          <a th:href="@{/test}">
+	        <button type="button" class="button-size1">テストをする　＞</button>
+	      </a>
       </div>
       <div class="top-center">
         <input type="button" value="過去の採点結果を見る　＞" class="button-size">

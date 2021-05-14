@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="style.css">
+<title>タイトル</title>
+</head>
+<body>
+<main>
+  <div class="header-box">
+    <input type="submit" value="top" class="b-size magin-l10">
+    <input type="submit" value="logout" class="b-size magin-l10">
+  </div>
+<form method="post" th:action="@{/test}" >
+  <div class="button-box">
+    <div class="buttonsize-box">
+      <div class="tyuou">
+        <div class="question-box">
+          <label class="valign">1　</label>
+          <textarea class="text-size text-size-h170" rows="10" cols="60">ここに記入してください</textarea>
+          <p>
+            <label>回答　</label>
+            <input type="text" name="example" value="選択肢" class="text-size maginbottom">
+          </p>
+          <label class="valign">2　</label>
+          <textarea class="text-size text-size-h170" rows="10" cols="60">ここに記入してください</textarea>
+          <p>
+            <label>回答　</label>
+            <input type="text" name="example" value="選択肢" class="text-size maginbottom">
+          </p>
+        </div>
+      </div>
+      <div class="center">
+        <input type="submit" value="採点" >
+      </div>
+    </div>
+  </div>
+</form>
+
+</main>
+</body>
+</html>
