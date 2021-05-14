@@ -77,10 +77,9 @@ public class ConfirmController {
 			String answer = answers[count];
 			String i = answerIds[count];
 			int answerId = Integer.parseInt(i);
-
+			System.out.println(answer);
+			System.out.println(answerId);
 			answerService.update(answer, answerId);
-
-			count = count + 1;
 
 		}
 		return "top";
