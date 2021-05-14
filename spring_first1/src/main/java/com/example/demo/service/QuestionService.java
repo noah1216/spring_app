@@ -39,6 +39,18 @@ public class QuestionService {
 		return repository.save(questions);
 	}
 
+	//一件の更新
+	public Question update(String question, int questionId) {
+		//　エンティティ変数作成
+		Question questions = new Question();
+		//　受け取った値をエンティティにセットする
+		System.out.println(question);
+		questions.setId(questionId);
+		questions.setQuestion(question);
+		// 保存
+		return repository.save(questions);
+	}
+
 	//　削除
 	public void delete(int id) {
 		repository.deleteById(id);
