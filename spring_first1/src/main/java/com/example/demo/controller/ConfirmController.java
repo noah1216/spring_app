@@ -28,7 +28,7 @@ public class ConfirmController {
 	private AnswerService answerService;
 
 	@GetMapping
-	String geteConfirm(@Validated @ModelAttribute UpdateForm updateForm, Model model, BindingResult result) {
+	String getConfirm(@Validated @ModelAttribute UpdateForm updateForm, Model model, BindingResult result) {
 		if (result.hasErrors()) {
 			System.out.println(result);
 			String q = updateForm.getQuestionId();
@@ -68,16 +68,15 @@ public class ConfirmController {
 
 		//　questionの更新
 		int questionId = Integer.parseInt(id);
-		System.out.println(question);
 		questionService.update(question, questionId);
 
 		// アンサーの更新
-		int count = 0;
-		for (String answer : answers) {
+
+		for (int count = 0; count < answers.length; count++) {
 			//リストからカウントして取得（int）
+			String answer = answers[count];
 			String i = answerIds[count];
 			int answerId = Integer.parseInt(i);
-			System.out.println(answer);
 
 			answerService.update(answer, answerId);
 

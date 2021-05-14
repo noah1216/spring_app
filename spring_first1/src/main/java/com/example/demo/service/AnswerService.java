@@ -35,6 +35,8 @@ public class AnswerService {
 		//　エンティティ変数作成
 		Answer answers = new Answer();
 		//　受け取った値をエンティティにセットする
+		System.out.println(answerId);
+		System.out.println(answer);
 		answers.setId(answerId);
 		answers.setAnswer(answer);
 		// 保存
