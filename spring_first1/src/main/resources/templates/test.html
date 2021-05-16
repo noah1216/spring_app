@@ -14,23 +14,19 @@
 <form method="post" th:action="@{/test}" >
   <div class="button-box">
     <div class="buttonsize-box">
-      <div class="tyuou">
+    
+    　<div th:each="questions : ${questionList}" th:object="${testForm}" >
         <div class="question-box">
           <label class="valign">1　</label>
-          <textarea class="text-size text-size-h170" rows="10" cols="60">ここに記入してください</textarea>
+          <textarea class="text-size text-size-h170" rows="10" cols="60" th:text="${questions.question}"></textarea>
           <p>
             <label>回答　</label>
-            <input type="text" name="example" value="選択肢" class="text-size maginbottom">
-          </p>
-          <label class="valign">2　</label>
-          <textarea class="text-size text-size-h170" rows="10" cols="60">ここに記入してください</textarea>
-          <p>
-            <label>回答　</label>
-            <input type="text" name="example" value="選択肢" class="text-size maginbottom">
-          </p>
+            <input type="text"  th:value="*{answer}" class="text-size maginbottom">
         </div>
       </div>
+      
       <div class="center">
+      	<input type="hidden" name="questionId" value="questionds" class="text-size"  th:value="${questions.id}" readonly>
         <input type="submit" value="採点" >
       </div>
     </div>
