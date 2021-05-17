@@ -1,7 +1,8 @@
 package com.example.demo.controller;
 
-import java.security.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.controller.form.LoginForm;
 import com.example.demo.controller.form.TestForm;
 import com.example.demo.entity.Answer;
-import com.example.demo.entity.History;
 import com.example.demo.entity.Question;
 import com.example.demo.service.AnswerService;
 import com.example.demo.service.HistoryService;
@@ -50,13 +50,15 @@ public class TestController {
 
 	@PostMapping
 	String postLogin(Model model, @ModelAttribute TestForm testForm, @ModelAttribute LoginForm loginForm) {
-		if (session == null) {
+		Integer user_id = (Integer) session.getAttribute("login_id");
+
+		if (user_id == null) {
 			return "login";
 		}
 
 		// セッションからテストuserデータ取得
 		String user_name = (String) session.getAttribute("login_name");
-		int user_id = (int) session.getAttribute("login_id");
+		//		int user_id = (int) session.getAttribute("login_id");
 
 		model.addAttribute("user_name", user_name);
 		model.addAttribute("user_id", user_id);
@@ -96,9 +98,6 @@ public class TestController {
 		//　.eq~で答えが一致したら点数にする
 		model.addAttribute("point", point);
 
-		// テスト結果保存
-		historyService.create(point, user_id);
-
 		//　問題数
 		List<Question> totals = questionService.findAll();
 		int total = totals.size();
@@ -110,9 +109,18 @@ public class TestController {
 		model.addAttribute("score", score);
 
 		//　テスト時間
-		History history = historyService.findHistory(user_id);
-		Timestamp date = history.getCreatedAt();
+		Date d = new Date();
+		SimpleDateFormat d1 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String date = d1.format(d);
+		//
+		//		LocalDateTime ldt = LocalDateTime.now();
+		//		Timestamp ts = Timestamp.valueOf(ldt);
+		//		History history = historyService.findHistory(user_id);
+		//		Timestamp date = history.getCreatedAt();
 		model.addAttribute("date", date);
+
+		// テスト結果保存
+		historyService.create(score, user_id);
 
 		return "result";
 	}
