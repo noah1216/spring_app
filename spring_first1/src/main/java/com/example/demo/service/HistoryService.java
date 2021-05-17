@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,13 @@ public class HistoryService {
 		return repository.findAll();
 	}
 
-	public History create(int point, int user_id) {
+	public History create(int point, int user_id, Timestamp timestamp) {
 		//　エンティティ変数作成
 		History histories = new History();
 		//　受け取った値をエンティティにセットする
 		histories.setPoint(point);
 		histories.setUserId(user_id);
+		histories.setCreatedAt(timestamp);
 
 		// 保存
 		return repository.save(histories);

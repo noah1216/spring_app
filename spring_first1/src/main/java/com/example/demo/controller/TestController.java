@@ -1,8 +1,7 @@
 package com.example.demo.controller;
 
-import java.text.SimpleDateFormat;
+import java.sql.Timestamp;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -109,15 +108,13 @@ public class TestController {
 		model.addAttribute("score", score);
 
 		//　テスト時間
-		Date d = new Date();
-		SimpleDateFormat d1 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		String date = d1.format(d);
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		//		History history = historyService.findHistory(user_id);
 		//		Timestamp date = history.getCreatedAt();
-		model.addAttribute("date", date);
+		model.addAttribute("date", timestamp);
 
 		// テスト結果保存
-		historyService.create(score, user_id);
+		historyService.create(score, user_id, timestamp);
 
 		return "result";
 	}
