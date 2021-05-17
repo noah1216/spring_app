@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="css/main.css" >
+<title>タイトル</title>
+</head>
+<body>
+<main>
+  <div class="header-box">
+    <div>
+			<a th:href="@{/top}">
+		      <input type="button" value="top">
+			</a>
+		    <a th:href="@{/logout}">
+		      <input type="button" value="logout">
+		    </a>
+    </div>
+  </div>
+  <div class="button-box">
+    <div class="buttonsize-box text_box1">
+      <h2>履歴</h2>
+      <div class="table">
+        <table border="1">
+          <tr>
+            <th>名前</th>
+            <th>得点</th>
+            <th>採点時間</th>
+          </tr>
+          <div th:each="history : ${histories}" >          
+	          <tr >
+	            <th th:text="${user_name}"></th>
+	            <th th:text="${history.point}"></th>
+	            <th th:text="${history.createdAt}"></th>
+	          </tr>
+			</div>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

@@ -8,8 +8,12 @@
 <body>
 <main>
   <div class="header-box">
-    <input type="submit" value="top" class="b-size magin-l10">
-    <input type="submit" value="logout" class="b-size magin-l10">
+			<a th:href="@{/top}">
+		      <input type="button" value="top">
+			</a>
+		    <a th:href="@{/logout}">
+		      <input type="button" value="logout">
+		    </a>
   </div>
 
   <div class="edit-numder">
