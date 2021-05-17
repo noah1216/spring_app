@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="style.css">
+<title>タイトル</title>
+</head>
+<body>
+<main>
+  <div class="header-box">
+			<a th:href="@{/top}">
+				<button type="button" class="b-size magin-l10">top</button>
+			</a>
+		    <a th:href="@{/logout}">
+		      <input type="button" value="logout">
+		    </a>
+  </div>
+  <h2 class="title1">テスト結果</h2>
+  <div class="test-box">
+    <ul class="test-user">
+      <li th:text="${user_name}+さん"></li>
+      <li th:text="${total}+問中+${point}+問正解です。"></li>
+      <li th:text="${score}+点でした。"></li>
+    </ul>
+    <div class="test-day">
+      <p th:text="${date}">
+        2019/06/23　12:00:13
+      </p>
+    </div>
+  </div>
+</main>
+</body>
+</html>

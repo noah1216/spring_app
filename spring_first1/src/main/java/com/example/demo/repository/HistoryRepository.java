@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.entity.Answer;
+import com.example.demo.entity.History;
 
 @Repository
-public interface AnswerRepository extends JpaRepository<Answer, Integer> {
+public interface HistoryRepository extends JpaRepository<History, Integer> {
 
-	List<Answer> findByQuestionsIdEquals(Integer questions_id);
+	List<History> findByUserIdEquals(int user_id);
 
 }

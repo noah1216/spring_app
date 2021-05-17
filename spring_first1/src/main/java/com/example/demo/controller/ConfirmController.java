@@ -30,7 +30,6 @@ public class ConfirmController {
 	@GetMapping
 	String getConfirm(@Validated @ModelAttribute UpdateForm updateForm, Model model, BindingResult result) {
 		if (result.hasErrors()) {
-			System.out.println(result);
 			String q = updateForm.getQuestionId();
 			int question_id = Integer.parseInt(q);
 			//クエスチョンの取得
