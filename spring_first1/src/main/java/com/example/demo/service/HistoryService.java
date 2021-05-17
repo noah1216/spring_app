@@ -31,7 +31,7 @@ public class HistoryService {
 
 	//questionカラムを参照し、一件の取得
 	public List<History> findHistory(int user_id) {
-		return null;
+		return repository.findByUserIdEquals(user_id);
 		//		return repository.findByUserIdEquals(user_id);
 	}
 

@@ -112,9 +112,6 @@ public class TestController {
 		Date d = new Date();
 		SimpleDateFormat d1 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String date = d1.format(d);
-		//
-		//		LocalDateTime ldt = LocalDateTime.now();
-		//		Timestamp ts = Timestamp.valueOf(ldt);
 		//		History history = historyService.findHistory(user_id);
 		//		Timestamp date = history.getCreatedAt();
 		model.addAttribute("date", date);
