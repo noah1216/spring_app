@@ -8,4 +8,6 @@ import com.example.demo.entity.History;
 @Repository
 public interface HistoryRepository extends JpaRepository<History, Integer> {
 
+	History findByUserIdEquals(int user_id);
+
 }

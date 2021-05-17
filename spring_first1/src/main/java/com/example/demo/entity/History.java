@@ -19,12 +19,12 @@ public class History {
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "user_id")
+	@Column(name = "users_id")
 	private int userId;
 
 	@Column(name = "point")
-	private String point;
+	private int point;
 
 	@Column(name = "created_at")
-	private Timestamp created_at;
+	private Timestamp createdAt;
 }

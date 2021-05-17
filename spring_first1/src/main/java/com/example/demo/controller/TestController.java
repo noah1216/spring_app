@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.security.Timestamp;
 import java.util.Collections;
 import java.util.List;
 
@@ -13,10 +14,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.controller.form.LoginForm;
 import com.example.demo.controller.form.TestForm;
 import com.example.demo.entity.Answer;
+import com.example.demo.entity.History;
 import com.example.demo.entity.Question;
 import com.example.demo.service.AnswerService;
+import com.example.demo.service.HistoryService;
 import com.example.demo.service.QuestionService;
 
 @Controller
@@ -28,6 +32,8 @@ public class TestController {
 	private QuestionService questionService;
 	@Autowired
 	private AnswerService answerService;
+	@Autowired
+	private HistoryService historyService;
 
 	@Autowired
 	HttpSession session;
@@ -43,11 +49,15 @@ public class TestController {
 	}
 
 	@PostMapping
-	String postLogin(Model model, @ModelAttribute TestForm testForm) {
+	String postLogin(Model model, @ModelAttribute TestForm testForm, @ModelAttribute LoginForm loginForm) {
+		if (session == null) {
+			return "login";
+		}
 
 		// セッションからテストuserデータ取得
 		String user_name = (String) session.getAttribute("login_name");
 		int user_id = (int) session.getAttribute("login_id");
+
 		model.addAttribute("user_name", user_name);
 		model.addAttribute("user_id", user_id);
 
@@ -78,15 +88,32 @@ public class TestController {
 				System.out.println(db_answer);
 
 				if (db_answer.equals(list_answer)) {
+					// 答えが一致したらポイントに+1する
 					point = point + 1;
 				}
 			}
-			model.addAttribute("point", point);
-			// 答えが一致したらポイントに+1する
-
 		}
-
 		//　.eq~で答えが一致したら点数にする
+		model.addAttribute("point", point);
+
+		// テスト結果保存
+		historyService.create(point, user_id);
+
+		//　問題数
+		List<Question> totals = questionService.findAll();
+		int total = totals.size();
+		model.addAttribute("total", total);
+
+		// 点数計算
+		int sum = 100 / total;
+		int score = sum * point;
+		model.addAttribute("score", score);
+
+		//　テスト時間
+		History history = historyService.findHistory(user_id);
+		Timestamp date = history.getCreatedAt();
+		model.addAttribute("date", date);
+
 		return "result";
 	}
 

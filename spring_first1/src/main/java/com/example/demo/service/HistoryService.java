@@ -18,7 +18,7 @@ public class HistoryService {
 		return repository.findAll();
 	}
 
-	public History create(String point, int user_id) {
+	public History create(int point, int user_id) {
 		//　エンティティ変数作成
 		History histories = new History();
 		//　受け取った値をエンティティにセットする
@@ -28,4 +28,10 @@ public class HistoryService {
 		// 保存
 		return repository.save(histories);
 	}
+
+	//questionカラムを参照し、一件の取得
+	public History findHistory(int user_id) {
+		return repository.findByUserIdEquals(user_id);
+	}
+
 }

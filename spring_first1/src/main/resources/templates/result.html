@@ -8,22 +8,22 @@
 <body>
 <main>
   <div class="header-box">
-    <input type="submit" value="top" class="b-size magin-l10">
-    <input type="submit" value="logout" class="b-size magin-l10">
+			<a th:href="@{/top}">
+				<button type="button" class="b-size magin-l10">top</button>
+			</a>
+		    <a th:href="@{/logout}">
+		      <input type="button" value="logout">
+		    </a>
   </div>
   <h2 class="title1">テスト結果</h2>
   <div class="test-box">
     <ul class="test-user">
       <li th:text="${user_name}+さん"></li>
-      <li th:text="１３問中+${point}+問正解です。">
-        １３問中１０問正解です。
-      </li>
-      <li>
-        ７７点でした。
-      </li>
+      <li th:text="${total}+問中+${point}+問正解です。"></li>
+      <li th:text="${score}+点でした。"></li>
     </ul>
     <div class="test-day">
-      <p>
+      <p th:text="${date}">
         2019/06/23　12:00:13
       </p>
     </div>
