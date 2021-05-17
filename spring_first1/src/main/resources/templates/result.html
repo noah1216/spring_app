@@ -14,10 +14,8 @@
   <h2 class="title1">テスト結果</h2>
   <div class="test-box">
     <ul class="test-user">
-      <li>
-        ネームさん
-      </li>
-      <li>
+      <li th:text="${user_name}+さん"></li>
+      <li th:text="１３問中+${point}+問正解です。">
         １３問中１０問正解です。
       </li>
       <li>

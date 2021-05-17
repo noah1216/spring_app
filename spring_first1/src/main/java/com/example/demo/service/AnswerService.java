@@ -43,7 +43,7 @@ public class AnswerService {
 		return repository.save(answers);
 	}
 
-	//　questionに紐付いたanswerを取得
+	//　questionに紐付いたanswerを全て取得
 	public List<Answer> findAnswer(Integer question_id) {
 		return repository.findByQuestionsIdEquals(question_id);
 	}

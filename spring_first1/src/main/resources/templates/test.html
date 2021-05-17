@@ -21,12 +21,12 @@
           <textarea class="text-size text-size-h170" rows="10" cols="60" th:text="${questions.question}"></textarea>
           <p>
             <label>回答　</label>
-            <input type="text"  th:value="*{answer}" class="text-size maginbottom">
+            <input type="text"  th:field="*{answer}" class="text-size maginbottom">
+            <input type="hidden" name="questionId" id="questionId" class="text-size"  th:value="${questions.id}" readonly>
         </div>
       </div>
       
       <div class="center">
-      	<input type="hidden" name="questionId" value="questionds" class="text-size"  th:value="${questions.id}" readonly>
         <input type="submit" value="採点" >
       </div>
     </div>
